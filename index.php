@@ -8,10 +8,15 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 $whoops->register();
 
+//Application modules
+
 $db = new Database();
 $user = new User($db);
+$game = new Game($db);
 
-print_r($user->getUserById(2));
+//Application
+
+require 'App/index.php';
 
 // print_r($user->removeUser(1));
 
